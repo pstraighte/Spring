@@ -34,9 +34,9 @@ public class PostController {
         return postService.updatePost(id, postRequestDto);
     }
 
-    @DeleteMapping("/post/[id}")    //글삭제
-    public PostRequestDto deletePost(@PathVariable Long id, @RequestBody PostRequestDto postRequestDto) {
+    @DeleteMapping("/post/{id}")    //글삭제
+    public PostResponseDto deletePost(@PathVariable Long id, @RequestBody PostRequestDto postRequestDto) {
         postService.deletePost(id, postRequestDto.getPassword());
-        return new PostResponseDto(ture);
+        return new PostResponseDto(true);
     }
 }
